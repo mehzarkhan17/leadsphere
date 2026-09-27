@@ -1010,8 +1010,9 @@ h1, h2, h3, h4 {
     </div>
 
     <div id="ls-modal-success" class="ls-modal__success" style="display:none;">
-      <h3>Thank you!</h3>
-      <p class="ls-modal__sub">Your request has been received. We'll contact you soon to confirm your call.</p>
+      <h3>One More Step! </h3>
+      <p class="ls-modal__sub">Your email is ready to send. Please click Send to submit your booking request.
+Once we receive it, our team will contact you.</p>
     </div>
   </div>
 </div>
@@ -1114,24 +1115,38 @@ h1, h2, h3, h4 {
       }
     });
 
-    if (!isValid) { if (firstInvalid) firstInvalid.focus(); return; }
+        if (!isValid) { if (firstInvalid) firstInvalid.focus(); return; }
 
-    /* Save booking locally so the Admin dashboard can list it.
-       Replace this with a real fetch()/API call to your backend in production. */
+    /* Build the email and open it in the visitor's default mail app
+       (Gmail, Outlook, Apple Mail, etc.) using a standard mailto link,
+       pre-filled with everything they entered.
+       CHANGE the admin email below to your real inbox. */
+    var ADMIN_EMAIL = "leadsphere786@gmail.com"; // <-- yahan apna email daalein
+
     var countryLabel = countrySel.options[countrySel.selectedIndex].textContent;
-    var booking = {
-      fullname: document.getElementById('ls-fullname').value.trim(),
-      email: document.getElementById('ls-email').value.trim(),
-      phone: document.getElementById('ls-phone').value.trim() || "-",
-      company: document.getElementById('ls-company').value.trim(),
-      country: countryLabel,
-      date: document.getElementById('ls-date').value,
-      time: document.getElementById('ls-time').value,
-      submittedAt: new Date().toISOString()
-    };
-    var all = JSON.parse(localStorage.getItem('ls_bookings') || '[]');
-    all.push(booking);
-    localStorage.setItem('ls_bookings', JSON.stringify(all));
+    var fullname = document.getElementById('ls-fullname').value.trim();
+    var email    = document.getElementById('ls-email').value.trim();
+    var phone    = document.getElementById('ls-phone').value.trim() || "-";
+    var company  = document.getElementById('ls-company').value.trim();
+    var date     = document.getElementById('ls-date').value;
+    var time     = document.getElementById('ls-time').value;
+
+    var subject = "New call booking request - " + fullname;
+    var body =
+      "Full name: " + fullname + "\n" +
+      "Email: " + email + "\n" +
+      "Phone number: " + phone + "\n" +
+      "Company name: " + company + "\n" +
+      "Country / Timezone: " + countryLabel + "\n" +
+      "Preferred date: " + date + "\n" +
+      "Preferred time: " + time;
+
+    var mailtoUrl =
+      "mailto:" + encodeURIComponent(ADMIN_EMAIL) +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+
+    window.location.href = mailtoUrl;
 
     formWrap.style.display = 'none';
     successEl.style.display = 'block';
