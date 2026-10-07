@@ -922,30 +922,6 @@ h1, h2, h3, h4 {
 
 .ls-modal__success { text-align: center; padding: 1rem 0; }
 .ls-modal__success h3 { margin-bottom: 0.5rem; }
-
-/* ---- Admin dashboard ---- */
-.ls-admin-link {
-  position: fixed; bottom: 14px; right: 14px; z-index: 500;
-  font-size: 0.75rem; color: var(--muted, #96a0a7);
-  background: var(--surface, #1f2326); border: 1px solid var(--line, rgba(255,255,255,.09));
-  padding: 0.35rem 0.7rem; border-radius: 999px; text-decoration: none; opacity: 0.6;
-}
-.ls-admin-link:hover { opacity: 1; }
-
-.ls-admin-modal .ls-modal { max-width: 900px; }
-.ls-admin-table-wrap { overflow-x: auto; }
-.ls-admin-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-.ls-admin-table th, .ls-admin-table td {
-  text-align: left; padding: 0.6rem 0.7rem;
-  border-bottom: 1px solid var(--line, rgba(255,255,255,.09));
-  white-space: nowrap;
-}
-.ls-admin-table th { color: var(--text-soft, #c2cbd1); font-weight: 700; }
-.ls-admin-empty { color: var(--muted, #96a0a7); padding: 1rem 0; }
-.ls-admin-clear {
-  margin-top: 1rem; border: 0; cursor: pointer;
-  background: transparent; color: #ff8189; font-size: 0.85rem; text-decoration: underline;
-}
 </style>
 
 <div class="ls-modal-overlay" id="ls-modal-overlay">
@@ -1017,28 +993,6 @@ Once we receive it, our team will contact you.</p>
   </div>
 </div>
 
-<!-- Admin dashboard (local demo only) -->
-<a href="#" id="ls-admin-open" class="ls-admin-link">Admin</a>
-<div class="ls-modal-overlay ls-admin-modal" id="ls-admin-overlay">
-  <div class="ls-modal" role="dialog" aria-modal="true" aria-labelledby="ls-admin-title">
-    <button type="button" class="ls-modal__close" id="ls-admin-close" aria-label="Close">&times;</button>
-    <h3 id="ls-admin-title">Booking requests</h3>
-    <p class="ls-modal__sub">Each row shows the client's chosen country/timezone and local time.</p>
-    <div class="ls-admin-table-wrap">
-      <table class="ls-admin-table" id="ls-admin-table">
-        <thead>
-          <tr>
-            <th>Name</th><th>Email</th><th>Phone</th><th>Company</th>
-            <th>Country / Timezone</th><th>Date</th><th>Time (client's local)</th><th>Submitted</th>
-          </tr>
-        </thead>
-        <tbody id="ls-admin-tbody"></tbody>
-      </table>
-      <p class="ls-admin-empty" id="ls-admin-empty" style="display:none;">No bookings yet.</p>
-    </div>
-    <button type="button" class="ls-admin-clear" id="ls-admin-clear">Clear all bookings</button>
-  </div>
-</div>
 
 <script>
 (function () {
@@ -1162,42 +1116,6 @@ Once we receive it, our team will contact you.</p>
       var field = input.closest('.ls-field');
       if (input.value.trim()) { field.classList.remove('ls-has-error'); input.classList.remove('ls-invalid'); }
     });
-  });
-
-  /* ---- Admin dashboard ---- */
-  var adminOpenBtn = document.getElementById('ls-admin-open');
-  var adminOverlay = document.getElementById('ls-admin-overlay');
-  var adminCloseBtn = document.getElementById('ls-admin-close');
-  var adminTbody = document.getElementById('ls-admin-tbody');
-  var adminEmpty = document.getElementById('ls-admin-empty');
-  var adminClearBtn = document.getElementById('ls-admin-clear');
-
-  function renderAdmin() {
-    var all = JSON.parse(localStorage.getItem('ls_bookings') || '[]');
-    adminTbody.innerHTML = '';
-    adminEmpty.style.display = all.length ? 'none' : 'block';
-    all.slice().reverse().forEach(function (b) {
-      var tr = document.createElement('tr');
-      tr.innerHTML =
-        '<td>' + b.fullname + '</td>' +
-        '<td>' + b.email + '</td>' +
-        '<td>' + b.phone + '</td>' +
-        '<td>' + b.company + '</td>' +
-        '<td>' + b.country + '</td>' +
-        '<td>' + b.date + '</td>' +
-        '<td>' + b.time + '</td>' +
-        '<td>' + new Date(b.submittedAt).toLocaleString() + '</td>';
-      adminTbody.appendChild(tr);
-    });
-  }
-  function openAdmin(e) { if (e) e.preventDefault(); renderAdmin(); adminOverlay.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
-  function closeAdmin() { adminOverlay.classList.remove('is-open'); document.body.style.overflow = ''; }
-
-  adminOpenBtn.addEventListener('click', openAdmin);
-  adminCloseBtn.addEventListener('click', closeAdmin);
-  adminOverlay.addEventListener('click', function (e) { if (e.target === adminOverlay) closeAdmin(); });
-  adminClearBtn.addEventListener('click', function () {
-    if (confirm('Clear all saved bookings?')) { localStorage.removeItem('ls_bookings'); renderAdmin(); }
   });
 })();
 </script>
