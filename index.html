@@ -1039,13 +1039,26 @@ Once we receive it, our team will contact you.</p>
     }
   } catch (e) {}
 
-  function openModal(e) { if (e) e.preventDefault(); overlay.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+  function openModal(e) {
+    if (e) e.preventDefault();
+    /* FIX: har baar modal khulte waqt form wapas dikhao,
+       success screen ko hata do, aur purani validation errors saaf karo */
+    successEl.style.display = 'none';
+    formWrap.style.display = '';
+    form.querySelectorAll('.ls-field').forEach(function (field) {
+      field.classList.remove('ls-has-error');
+      var input = field.querySelector('input, select');
+      if (input) input.classList.remove('ls-invalid');
+    });
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
   function closeModal() { overlay.classList.remove('is-open'); document.body.style.overflow = ''; }
 
   if (openBtn) openBtn.addEventListener('click', openModal);
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeModal(); closeAdmin(); } });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeModal(); } });
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -1069,7 +1082,7 @@ Once we receive it, our team will contact you.</p>
       }
     });
 
-        if (!isValid) { if (firstInvalid) firstInvalid.focus(); return; }
+    if (!isValid) { if (firstInvalid) firstInvalid.focus(); return; }
 
     /* Build the email and open it in the visitor's default mail app
        (Gmail, Outlook, Apple Mail, etc.) using a standard mailto link,
