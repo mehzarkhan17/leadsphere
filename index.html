@@ -6,6 +6,66 @@
 <title>Leadsphere | Email, social media, performance marketing and cold calling</title>
 <meta name="description" content="Leadsphere is a marketing agency that runs email marketing, social media marketing, performance marketing and cold calling as one connected system to bring you more leads.">
 <meta name="theme-color" content="#171b1e">
+<!-- ===== SEO ===== -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="keywords" content="marketing agency, lead generation, email marketing, social media marketing, performance marketing, cold calling, B2B lead generation">
+<meta name="author" content="Leadsphere">
+<link rel="canonical" href="https://www.yourdomain.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23171b1e'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23c9d1d6'/%3E%3C/svg%3E">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Leadsphere">
+<meta property="og:title" content="Leadsphere | Email, social media, performance marketing and cold calling">
+<meta property="og:description" content="Four channels, one connected system. Leadsphere finds, warms up and follows up your prospects to bring you a steady flow of leads.">
+<meta property="og:url" content="https://www.yourdomain.com/">
+<meta property="og:image" content="https://www.yourdomain.com/og-image.png">
+<meta property="og:image:alt" content="Leadsphere marketing agency">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Leadsphere | Email, social media, performance marketing and cold calling">
+<meta name="twitter:description" content="Four channels, one connected system. Leadsphere brings you a steady flow of leads.">
+<meta name="twitter:image" content="https://www.yourdomain.com/og-image.png">
+
+<!-- Structured data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.yourdomain.com/#business",
+      "name": "Leadsphere",
+      "url": "https://www.yourdomain.com/",
+      "logo": "https://www.yourdomain.com/logo.png",
+      "image": "https://www.yourdomain.com/og-image.png",
+      "description": "Leadsphere is a marketing agency that runs email marketing, social media marketing, performance marketing and cold calling as one connected system to bring you more leads.",
+      "email": "admin@leadsphere.media",
+      "areaServed": "Worldwide",
+      "serviceType": ["Email marketing", "Social media marketing", "Performance marketing", "Cold calling", "Lead generation"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leadsphere services",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Email marketing"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Social media marketing"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Performance marketing"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cold calling"}}
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.yourdomain.com/#website",
+      "url": "https://www.yourdomain.com/",
+      "name": "Leadsphere",
+      "publisher": {"@id": "https://www.yourdomain.com/#business"}
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
@@ -989,6 +1049,7 @@ h1, h2, h3, h4 {
       <h3>One More Step! </h3>
       <p class="ls-modal__sub">Your email is ready to send. Please click Send to submit your booking request.
 Once we receive it, our team will contact you.</p>
+      <p class="ls-modal__sub" style="margin-top:1rem;">Mail app didn't open? <a id="ls-gmail-fallback" href="#" target="_blank" rel="noopener" style="color:var(--focus,#8cc4ea);">Open it in Gmail</a></p>
     </div>
   </div>
 </div>
@@ -1034,6 +1095,9 @@ Once we receive it, our team will contact you.</p>
   /* Pre-select the visitor's own timezone if it matches the list */
   try {
     var guessTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    var TZ_ALIAS = { "Asia/Calcutta": "Asia/Kolkata", "Asia/Saigon": "Asia/Ho_Chi_Minh",
+                     "Asia/Katmandu": "Asia/Kathmandu", "America/Buenos_Aires": "America/Argentina/Buenos_Aires" };
+    if (TZ_ALIAS[guessTz]) guessTz = TZ_ALIAS[guessTz];
     for (var i = 0; i < countrySel.options.length; i++) {
       if (countrySel.options[i].value === guessTz) { countrySel.selectedIndex = i; break; }
     }
@@ -1088,7 +1152,7 @@ Once we receive it, our team will contact you.</p>
        (Gmail, Outlook, Apple Mail, etc.) using a standard mailto link,
        pre-filled with everything they entered.
        CHANGE the admin email below to your real inbox. */
-    var ADMIN_EMAIL = "leadsphere786@gmail.com"; // <-- yahan apna email daalein
+    var ADMIN_EMAIL = "admin@leadsphere.media"; // <-- yahan apna email daalein
 
     var countryLabel = countrySel.options[countrySel.selectedIndex].textContent;
     var fullname = document.getElementById('ls-fullname').value.trim();
@@ -1112,6 +1176,10 @@ Once we receive it, our team will contact you.</p>
       "mailto:" + encodeURIComponent(ADMIN_EMAIL) +
       "?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(body);
+
+    var gm = document.getElementById('ls-gmail-fallback');
+    if (gm) gm.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(ADMIN_EMAIL) +
+      "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
 
     window.location.href = mailtoUrl;
 
