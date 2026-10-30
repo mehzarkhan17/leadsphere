@@ -10,7 +10,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="keywords" content="marketing agency, lead generation, email marketing, social media marketing, performance marketing, cold calling, B2B lead generation">
 <meta name="author" content="Leadsphere">
-<link rel="canonical" href="https://leadsphere.media/">
+<link rel="canonical" href="https://www.leadsphere.media/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23171b1e'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23c9d1d6'/%3E%3C/svg%3E">
 
 <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
@@ -42,8 +42,19 @@
       "logo": "https://www.leadsphere.media/logo.png",
       "image": "https://www.leadsphere.media/og-image.png",
       "description": "Leadsphere is a marketing agency that runs email marketing, social media marketing, performance marketing and cold calling as one connected system to bring you more leads.",
-      "email": "io@leasphere.media",
+      "email": "team@leadsphere.media",
       "areaServed": "Worldwide",
+      "sameAs": [
+        "https://www.linkedin.com/company/leadsphere-media/",
+        "https://x.com/LeadSphereHQ",
+        "https://www.facebook.com/profile.php?id=61595881082366",
+        "https://www.instagram.com/leadsphere.media/"
+      ],
+      "founder": [
+        {"@type": "Person", "name": "Sameer", "sameAs": "https://www.linkedin.com/in/mir-sameer-ali-047044224"},
+        {"@type": "Person", "name": "Fardeen", "sameAs": "https://www.linkedin.com/in/fardeen-khan-983927340"},
+        {"@type": "Person", "name": "Kaif", "sameAs": "https://www.linkedin.com/in/mohammed-kaif-khan-86605a208"}
+      ],
       "serviceType": ["Email marketing", "Social media marketing", "Performance marketing", "Cold calling", "Lead generation"],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -444,6 +455,34 @@ h1, h2, h3, h4 {
 .footer .brand__word { font-size: 0.95rem; }
 
 /* =========================================================
+   Founders + social links
+   ========================================================= */
+.founders { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.founder { display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+.founder h3 { margin-top: 1.1rem; font-size: 1.4rem; font-weight: 750; }
+.founder__role { color: var(--muted); font-size: 0.98rem; }
+.founder__link {
+  display: inline-flex; align-items: center; gap: 0.55rem; margin-top: 1.1rem;
+  padding: 0.55rem 1rem; border-radius: 999px; text-decoration: none;
+  color: var(--text); font-weight: 600; font-size: 0.95rem;
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+.founder__link:hover { background: var(--line); transform: translateY(-1px); }
+.founder__link svg, .social a svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
+
+.social { display: flex; gap: 0.6rem; }
+.social a {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  color: var(--text-soft); text-decoration: none;
+  background: radial-gradient(circle at 30% 25%, var(--surface-2), var(--bg));
+  border: 1px solid var(--line-strong);
+  transition: color 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+}
+.social a:hover { color: var(--icon); border-color: var(--icon); transform: translateY(-2px); }
+@media (max-width: 780px) { .founders { grid-template-columns: minmax(0, 1fr); } }
+
+/* =========================================================
    Responsive
    ========================================================= */
 @media (max-width: 920px) {
@@ -493,6 +532,12 @@ h1, h2, h3, h4 {
     <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
     <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></symbol>
+
+    <!-- Social icons -->
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3"/></symbol>
   </defs>
 </svg>
 
@@ -507,7 +552,7 @@ h1, h2, h3, h4 {
       <a href="#how">How it works</a>
       <a href="#why">Why Leadsphere</a>
     </nav>
-    <a class="btn btn--primary btn--sm" href="#book">Book a call</a>
+    <a class="btn btn--primary btn--sm" href="https://tally.so/r/e5594E" target="_blank" rel="noopener">Book a call</a>
   </div>
 </header>
 
@@ -753,6 +798,42 @@ h1, h2, h3, h4 {
     </div>
   </section>
 
+  <!-- ============ Founders ============ -->
+  <section class="section section--alt" id="founders" aria-labelledby="founders-title">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="founders-title">Meet the co-founders</h2>
+        <p>The people behind Leadsphere. Connect with them on LinkedIn.</p>
+      </div>
+      <div class="founders">
+        <article class="panel founder">
+          <span class="badge" aria-hidden="true">S</span>
+          <h3>Sameer</h3>
+          <p class="founder__role">Co-founder</p>
+          <a class="founder__link" href="https://www.linkedin.com/in/mir-sameer-ali-047044224" target="_blank" rel="noopener noreferrer" aria-label="Sameer on LinkedIn">
+            <svg aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn
+          </a>
+        </article>
+        <article class="panel founder">
+          <span class="badge" aria-hidden="true">F</span>
+          <h3>Fardeen</h3>
+          <p class="founder__role">Co-founder</p>
+          <a class="founder__link" href="https://www.linkedin.com/in/fardeen-khan-983927340" target="_blank" rel="noopener noreferrer" aria-label="Fardeen on LinkedIn">
+            <svg aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn
+          </a>
+        </article>
+        <article class="panel founder">
+          <span class="badge" aria-hidden="true">K</span>
+          <h3>Kaif</h3>
+          <p class="founder__role">Co-founder</p>
+          <a class="founder__link" href="https://www.linkedin.com/in/mohammed-kaif-khan-86605a208" target="_blank" rel="noopener noreferrer" aria-label="Kaif on LinkedIn">
+            <svg aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ Final call to action ============ -->
   <section class="section section--cta" id="book" aria-labelledby="book-title">
     <div class="wrap">
@@ -772,8 +853,7 @@ h1, h2, h3, h4 {
         <p class="cta__text">Book a 15-minute call. We'll talk through your goals, look at what you're doing today and show you where Leadsphere can help.</p>
 
         <!-- BOOKING LINK: replace this href with your Calendly / Cal.com / Google Calendar booking URL -->
-        <!--<a class="btn btn--primary btn--lg" id="book-call" href="https://forms.gle/AAPKA-FORM-LINK" target="_blank" rel="noopener"> -->
-        <a class="btn btn--primary btn--lg" id="book-call" href="#">
+        <a class="btn btn--primary btn--lg" id="book-call" href="https://tally.so/r/e5594E" target="_blank" rel="noopener">
           <svg aria-hidden="true"><use href="#i-cal"/></svg>
           Book a 15-min call
         </a>
@@ -786,6 +866,12 @@ h1, h2, h3, h4 {
           <span class="brand__word">Lead<span>sphere</span></span>
         </a>
         <p>&copy; 2026 Leadsphere. All rights reserved.</p>
+        <nav class="social" aria-label="Leadsphere on social media">
+          <a href="https://www.linkedin.com/company/leadsphere-media/" target="_blank" rel="noopener noreferrer" aria-label="Leadsphere on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+          <a href="https://x.com/LeadSphereHQ" target="_blank" rel="noopener noreferrer" aria-label="Leadsphere on X"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61595881082366" target="_blank" rel="noopener noreferrer" aria-label="Leadsphere on Facebook"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a href="https://www.instagram.com/leadsphere.media/" target="_blank" rel="noopener noreferrer" aria-label="Leadsphere on Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        </nav>
       </footer>
     </div>
   </section>
@@ -886,319 +972,6 @@ h1, h2, h3, h4 {
     }).observe(svg);
   }
   run();
-})();
-</script>
-<!-- ===== Book a Call Modal  ===== -->
-<style>
-.ls-modal-overlay {
-  display: none;
-  position: fixed; inset: 0; z-index: 999;
-  background: rgba(10, 13, 15, 0.65);
-  align-items: center; justify-content: center;
-  padding: 1.25rem;
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-}
-.ls-modal-overlay.is-open { display: flex; }
-
-.ls-modal {
-  position: relative;
-  width: 100%; max-width: 520px;
-  max-height: 90vh; overflow-y: auto;
-  background: var(--surface, #1f2326);
-  color: var(--text, #e9edf0);
-  border: 1px solid var(--line-strong, rgba(255,255,255,0.2));
-  border-radius: 20px;
-  padding: 2rem;
-  font-family: var(--font, "Archivo", sans-serif);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-}
-.ls-modal h3 { margin: 0 0 0.35rem; font-size: 1.5rem; font-weight: 750; }
-.ls-modal__sub { margin: 0 0 1.5rem; color: var(--text-soft, #c2cbd1); font-size: 0.95rem; }
-.ls-modal__close {
-  position: absolute; top: 1rem; right: 1rem;
-  width: 36px; height: 36px;
-  display: grid; place-items: center;
-  border-radius: 50%; border: 0; cursor: pointer;
-  background: var(--surface-2, #282e32);
-  color: var(--text, #e9edf0);
-  font-size: 1.2rem; line-height: 1;
-}
-.ls-modal__close:hover { filter: brightness(1.2); }
-
-.ls-field { margin-bottom: 1.1rem; }
-.ls-field label {
-  display: block; margin-bottom: 0.4rem;
-  font-size: 0.92rem; font-weight: 600;
-  color: var(--text-soft, #c2cbd1);
-}
-.ls-field label .req { color: #e5626b; margin-left: 2px; }
-.ls-field label .opt { color: var(--muted, #96a0a7); font-weight: 400; font-size: 0.82rem; margin-left: 6px; }
-
-.ls-field input,
-.ls-field select {
-  width: 100%;
-  padding: 0.75rem 0.9rem;
-  border-radius: 10px;
-  border: 1px solid var(--line-strong, rgba(255,255,255,0.2));
-  background: var(--surface-2, #282e32);
-  color: var(--text, #e9edf0);
-  font: 400 1rem var(--font, sans-serif);
-  outline: none;
-  box-sizing: border-box;
-}
-.ls-field input::placeholder { color: var(--muted, #96a0a7); }
-.ls-field input:focus,
-.ls-field select:focus {
-  border-color: var(--focus, #8cc4ea);
-  box-shadow: 0 0 0 3px rgba(140, 196, 234, 0.25);
-}
-.ls-field input.ls-invalid,
-.ls-field select.ls-invalid {
-  border-color: #e5626b;
-  box-shadow: 0 0 0 3px rgba(229, 98, 107, 0.2);
-}
-.ls-error {
-  display: none;
-  margin-top: 0.35rem;
-  color: #ff8189;
-  font-size: 0.85rem;
-}
-.ls-field.ls-has-error .ls-error { display: block; }
-
-.ls-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
-@media (max-width: 480px) { .ls-row2 { grid-template-columns: 1fr; } }
-
-.ls-modal__actions { margin-top: 1.4rem; }
-.ls-modal__submit {
-  width: 100%;
-  border: 0; cursor: pointer;
-  min-height: 50px;
-  border-radius: 999px;
-  font: 700 1rem var(--font, sans-serif);
-  color: #fff;
-  background: linear-gradient(180deg, var(--btn-a, #2f7cae), var(--btn-b, #205a80));
-}
-.ls-modal__submit:hover { filter: brightness(1.1); }
-
-.ls-modal__success { text-align: center; padding: 1rem 0; }
-.ls-modal__success h3 { margin-bottom: 0.5rem; }
-</style>
-
-<div class="ls-modal-overlay" id="ls-modal-overlay">
-  <div class="ls-modal" role="dialog" aria-modal="true" aria-labelledby="ls-modal-title">
-    <button type="button" class="ls-modal__close" id="ls-modal-close" aria-label="Close">&times;</button>
-
-    <div id="ls-modal-form-wrap">
-      <h3 id="ls-modal-title">Book a 15-min call</h3>
-      <p class="ls-modal__sub">Fill in your details and pick a date &amp; time that works for you.</p>
-
-      <form id="ls-book-form" novalidate>
-        <div class="ls-field" data-field="fullname">
-          <label for="ls-fullname">Full name<span class="req">*</span></label>
-          <input type="text" id="ls-fullname" name="fullname" placeholder="Your full name">
-          <p class="ls-error">This field is required.</p>
-        </div>
-
-        <div class="ls-field" data-field="email">
-          <label for="ls-email">Email<span class="req">*</span></label>
-          <input type="email" id="ls-email" name="email" placeholder="you@example.com">
-          <p class="ls-error">This field is required.</p>
-        </div>
-
-        <div class="ls-field" data-field="phone">
-          <label for="ls-phone">Phone number<span class="opt">(optional)</span></label>
-          <input type="tel" id="ls-phone" name="phone" placeholder="+91 98765 43210">
-          <p class="ls-error">This field is required.</p>
-        </div>
-
-        <div class="ls-field" data-field="company">
-          <label for="ls-company">Company name<span class="req">*</span></label>
-          <input type="text" id="ls-company" name="company" placeholder="Your company">
-          <p class="ls-error">This field is required.</p>
-        </div>
-
-        <div class="ls-field" data-field="country">
-          <label for="ls-country">Country / Timezone<span class="req">*</span></label>
-          <select id="ls-country" name="country">
-            <option value="">Select your country</option>
-          </select>
-          <p class="ls-error">This field is required.</p>
-        </div>
-
-        <div class="ls-row2">
-          <div class="ls-field" data-field="date">
-            <label for="ls-date">Preferred date<span class="req">*</span></label>
-            <input type="date" id="ls-date" name="date">
-            <p class="ls-error">This field is required.</p>
-          </div>
-
-          <div class="ls-field" data-field="time">
-            <label for="ls-time">Preferred time<span class="req">*</span></label>
-            <input type="time" id="ls-time" name="time">
-            <p class="ls-error">This field is required.</p>
-          </div>
-        </div>
-
-        <div class="ls-modal__actions">
-          <button type="submit" class="ls-modal__submit">Submit</button>
-        </div>
-      </form>
-    </div>
-
-    <div id="ls-modal-success" class="ls-modal__success" style="display:none;">
-      <h3>One More Step! </h3>
-      <p class="ls-modal__sub">Your email is ready to send. Please click Send to submit your booking request.
-Once we receive it, our team will contact you.</p>
-      <p class="ls-modal__sub" style="margin-top:1rem;">Mail app didn't open? <a id="ls-gmail-fallback" href="#" target="_blank" rel="noopener" style="color:var(--focus,#8cc4ea);">Open it in Gmail</a></p>
-    </div>
-  </div>
-</div>
-
-
-<script>
-(function () {
-  var openBtn    = document.getElementById('book-call');
-  var overlay    = document.getElementById('ls-modal-overlay');
-  var closeBtn   = document.getElementById('ls-modal-close');
-  var form       = document.getElementById('ls-book-form');
-  var formWrap   = document.getElementById('ls-modal-form-wrap');
-  var successEl  = document.getElementById('ls-modal-success');
-  var countrySel = document.getElementById('ls-country');
-
-  /* Country -> IANA timezone list (common set) */
-  var COUNTRIES = [
-    ["India","Asia/Kolkata"],["United States (Eastern)","America/New_York"],
-    ["United States (Central)","America/Chicago"],["United States (Mountain)","America/Denver"],
-    ["United States (Pacific)","America/Los_Angeles"],["United Kingdom","Europe/London"],
-    ["Ireland","Europe/Dublin"],["Germany","Europe/Berlin"],["France","Europe/Paris"],
-    ["Spain","Europe/Madrid"],["Italy","Europe/Rome"],["Netherlands","Europe/Amsterdam"],
-    ["Portugal","Europe/Lisbon"],["UAE","Asia/Dubai"],["Saudi Arabia","Asia/Riyadh"],
-    ["Pakistan","Asia/Karachi"],["Bangladesh","Asia/Dhaka"],["Sri Lanka","Asia/Colombo"],
-    ["Nepal","Asia/Kathmandu"],["Singapore","Asia/Singapore"],["Malaysia","Asia/Kuala_Lumpur"],
-    ["Philippines","Asia/Manila"],["Indonesia (Jakarta)","Asia/Jakarta"],["Thailand","Asia/Bangkok"],
-    ["Vietnam","Asia/Ho_Chi_Minh"],["China","Asia/Shanghai"],["Hong Kong","Asia/Hong_Kong"],
-    ["Japan","Asia/Tokyo"],["South Korea","Asia/Seoul"],["Australia (Sydney)","Australia/Sydney"],
-    ["Australia (Perth)","Australia/Perth"],["New Zealand","Pacific/Auckland"],
-    ["South Africa","Africa/Johannesburg"],["Nigeria","Africa/Lagos"],["Egypt","Africa/Cairo"],
-    ["Kenya","Africa/Nairobi"],["Brazil","America/Sao_Paulo"],["Mexico","America/Mexico_City"],
-    ["Argentina","America/Argentina/Buenos_Aires"],["Canada (Eastern)","America/Toronto"],
-    ["Canada (Pacific)","America/Vancouver"],["Russia (Moscow)","Europe/Moscow"],
-    ["Turkey","Europe/Istanbul"],["Israel","Asia/Jerusalem"]
-  ];
-  COUNTRIES.forEach(function (c) {
-    var opt = document.createElement('option');
-    opt.value = c[1];
-    opt.textContent = c[0] + " (" + c[1] + ")";
-    countrySel.appendChild(opt);
-  });
-
-  /* Pre-select the visitor's own timezone if it matches the list */
-  try {
-    var guessTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    var TZ_ALIAS = { "Asia/Calcutta": "Asia/Kolkata", "Asia/Saigon": "Asia/Ho_Chi_Minh",
-                     "Asia/Katmandu": "Asia/Kathmandu", "America/Buenos_Aires": "America/Argentina/Buenos_Aires" };
-    if (TZ_ALIAS[guessTz]) guessTz = TZ_ALIAS[guessTz];
-    for (var i = 0; i < countrySel.options.length; i++) {
-      if (countrySel.options[i].value === guessTz) { countrySel.selectedIndex = i; break; }
-    }
-  } catch (e) {}
-
-  function openModal(e) {
-    if (e) e.preventDefault();
-    /* FIX: har baar modal khulte waqt form wapas dikhao,
-       success screen ko hata do, aur purani validation errors saaf karo */
-    successEl.style.display = 'none';
-    formWrap.style.display = '';
-    form.querySelectorAll('.ls-field').forEach(function (field) {
-      field.classList.remove('ls-has-error');
-      var input = field.querySelector('input, select');
-      if (input) input.classList.remove('ls-invalid');
-    });
-    overlay.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal() { overlay.classList.remove('is-open'); document.body.style.overflow = ''; }
-
-  if (openBtn) openBtn.addEventListener('click', openModal);
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeModal(); } });
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var fields = form.querySelectorAll('.ls-field');
-    var firstInvalid = null, isValid = true;
-
-    fields.forEach(function (field) {
-      var key = field.getAttribute('data-field');
-      var input = field.querySelector('input, select');
-      var value = input.value.trim();
-      var required = key !== 'phone'; /* phone is optional */
-
-      if (required && !value) {
-        field.classList.add('ls-has-error');
-        input.classList.add('ls-invalid');
-        isValid = false;
-        if (!firstInvalid) firstInvalid = input;
-      } else {
-        field.classList.remove('ls-has-error');
-        input.classList.remove('ls-invalid');
-      }
-    });
-
-    if (!isValid) { if (firstInvalid) firstInvalid.focus(); return; }
-
-    /* Build the email and open it in the visitor's default mail app
-       (Gmail, Outlook, Apple Mail, etc.) using a standard mailto link,
-       pre-filled with everything they entered.
-       CHANGE the admin email below to your real inbox. */
-    var ADMIN_EMAIL = "io@leadsphere.media"; // <-- yahan apna email daalein
-
-    var countryLabel = countrySel.options[countrySel.selectedIndex].textContent;
-    var fullname = document.getElementById('ls-fullname').value.trim();
-    var email    = document.getElementById('ls-email').value.trim();
-    var phone    = document.getElementById('ls-phone').value.trim() || "-";
-    var company  = document.getElementById('ls-company').value.trim();
-    var date     = document.getElementById('ls-date').value;
-    var time     = document.getElementById('ls-time').value;
-
-    var subject = "New call booking request - " + fullname;
-    var body =
-      "Full name: " + fullname + "\n" +
-      "Email: " + email + "\n" +
-      "Phone number: " + phone + "\n" +
-      "Company name: " + company + "\n" +
-      "Country / Timezone: " + countryLabel + "\n" +
-      "Preferred date: " + date + "\n" +
-      "Preferred time: " + time;
-
-    var mailtoUrl =
-      "mailto:" + encodeURIComponent(ADMIN_EMAIL) +
-      "?subject=" + encodeURIComponent(subject) +
-      "&body=" + encodeURIComponent(body);
-
-    var gm = document.getElementById('ls-gmail-fallback');
-    if (gm) gm.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(ADMIN_EMAIL) +
-      "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-
-    window.location.href = mailtoUrl;
-
-    formWrap.style.display = 'none';
-    successEl.style.display = 'block';
-    form.reset();
-  });
-
-  form.querySelectorAll('input, select').forEach(function (input) {
-    input.addEventListener('input', function () {
-      var field = input.closest('.ls-field');
-      if (input.value.trim()) { field.classList.remove('ls-has-error'); input.classList.remove('ls-invalid'); }
-    });
-    input.addEventListener('change', function () {
-      var field = input.closest('.ls-field');
-      if (input.value.trim()) { field.classList.remove('ls-has-error'); input.classList.remove('ls-invalid'); }
-    });
-  });
 })();
 </script>
 </body>
